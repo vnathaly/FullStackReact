@@ -1,35 +1,33 @@
-
-const App = () => {
-  const now = new Date();
-  const a = 10;
-  const b = 20;
-
-  console.log(now, (a+b))
-
+// New component
+const Hello = (props) => {
+  console.log(props)
   return (
     <>
     <div>
-      <p>The date today is {now.toString()}</p>
-      <p>{a} plus {b} is {a + b}</p>
+      <p>
+        Hello {props.name} and your age is {props.age}
+      </p>
+    </div>
+    </>
+  );
+}
+
+const App = () => {
+  const name = 'Peter'
+  const age = 11;
+  return (
+    <>
+    <div>
+      <h1>Greetings</h1>
+      <Hello name='Anabel' age = {22} />
+      <Hello name='Melisa' age = {10 + 13} />
+      <Hello name='Nathaly' age = {21} />
+      <Hello name={name} age={age} />
+
     </div>
     </>
   )
 }
 
-function Avatar () {
-  return (
-    <img 
-    className="Avatar"
-    src="https://i.imgur.com/1bX5QH6.jpg" 
-    alt="Happy Old"
-    width={100}
-    height={100}
-    />
-   );
-}
+export default App;
 
-export default function Profile() {
-  return (
-    <Avatar />
-  );
-}
